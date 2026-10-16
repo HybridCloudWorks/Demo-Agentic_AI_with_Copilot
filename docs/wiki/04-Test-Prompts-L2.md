@@ -1,3 +1,7 @@
+---
+title: "04 - Test Prompts: L2"
+---
+
 # 04 - Test Prompts: L2
 
 L2 tests exercise handoffs. Each prompt is a short story that makes the next agent boundary obvious.

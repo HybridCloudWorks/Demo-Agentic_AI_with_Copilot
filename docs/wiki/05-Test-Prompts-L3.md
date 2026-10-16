@@ -1,3 +1,7 @@
+---
+title: "05 - Test Prompts: L3"
+---
+
 # 05 - Test Prompts: L3
 
 L3 tests run the whole ecosystem. Each scenario is still story-driven, but it is broad enough to exercise the orchestrator, the handoffs, the review gates, and the skills together.
