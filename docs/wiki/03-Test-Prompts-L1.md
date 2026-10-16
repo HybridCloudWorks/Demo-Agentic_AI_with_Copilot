@@ -1,3 +1,7 @@
+---
+title: "03 - Test Prompts: L1"
+---
+
 # 03 - Test Prompts: L1
 
 L1 tests exercise one agent or one skill at a time. Each prompt is written as a small story so the expected behavior is easy to check.

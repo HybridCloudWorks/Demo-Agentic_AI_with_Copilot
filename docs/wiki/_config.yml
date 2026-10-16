@@ -1,0 +1,12 @@
+title: "Demo: Agentic AI with Claude & GitHub Copilot"
+description: "Seven-agent, twelve-skill IaC engineering team for Claude Code and GitHub Copilot in VS Code."
+remote_theme: just-the-docs/just-the-docs@v0.10.1
+plugins:
+  - jekyll-remote-theme
+  - jekyll-relative-links
+relative_links:
+  enabled: true
+  collections: false
+search_enabled: true
+aux_links:
+  "View on GitHub": "https://github.com/HybridCloudWorks/Demo-Agentic_AI_with_Copilot"

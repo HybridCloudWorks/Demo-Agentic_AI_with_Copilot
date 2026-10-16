@@ -2,6 +2,8 @@
 
 A drag-and-drop demo of a **multi-agent IaC engineering team** that runs identically on **Claude Code** and **GitHub Copilot** inside VS Code / the Agents center. Seven specialized agents, twelve skills, and an orchestrator layer with typed handoff contracts — designed so the flow routes correctly every time.
 
+**Documentation:** [hybridcloudworks.github.io/Demo-Agentic_AI_with_Copilot](https://hybridcloudworks.github.io/Demo-Agentic_AI_with_Copilot/)
+
 ## What this demo is trying to achieve
 
 Prove that a single, well-structured set of agent definitions can:
@@ -23,7 +25,7 @@ Prove that a single, well-structured set of agent definitions can:
 | architecture-reviewer | **Compass** | Read-only design/reuse review (2-pass cycle) |
 | plan-mode-reviewer | **Sentinel** | Read-only plan review & constraint gate |
 
-**Skills:** `handoff-contracts` (the glue), `drawio-skill` (the official diagrams skill — draw.io with the official Azure/AWS icon sets and enforced presentation standards), `terraform-validation`, `github-actions-security`, `azure-verified-modules`, `adr-authoring`, the Azure ops pack (`azure-cloud-migrate`, `azure-compliance`, `azure-cost`, `azure-deploy`), and `report-issue` for filing bugs against this demo.
+**Skills:** `handoff-contracts` (the glue), `drawio-skill` (the official diagrams skill — draw.io with the official Azure/AWS icon sets and enforced presentation standards), `terraform-validation`, `github-actions-security`, `azure-verified-modules`, `adr-authoring`, the Azure ops pack (`azure-cloud-migrate`, `azure-compliance`, `azure-cost`, `azure-deploy`, `azure-resource-visualizer`), and `report-issue` for filing bugs against this demo.
 
 ## Release 0.5
 
@@ -32,7 +34,7 @@ This release simplifies the test prompts into smaller, story-driven scenarios so
 - L1 prompts are now intentionally small and focused on a single agent or skill.
 - L2 prompts keep the handoff flow but reduce the amount of infrastructure at each step.
 - L3 prompts still exercise the full ecosystem, but each scenario is easier to follow and explain.
-- The wiki content now has a local markdown source mirror in `wiki/` so the prompt set is easier to maintain.
+- The wiki content now has a local markdown source in `docs/wiki/` so the prompt set is easier to maintain.
 
 ## Cheat sheet
 
@@ -80,20 +82,31 @@ This release simplifies the test prompts into smaller, story-driven scenarios so
 │   └── .claude/
 │       ├── agents/             ← 7 agents
 │       └── skills/             ← 12 skills
-└── copilot/                    ← drag the CONTENTS into your project root for GitHub Copilot
-    └── .github/
-        ├── copilot-instructions.md   ← orchestrator (auto-loaded by Copilot)
-        ├── agents/             ← 7 agents (.agent.md)
-        └── skills/             ← 12 skills
+├── copilot/                    ← drag the CONTENTS into your project root for GitHub Copilot
+│   └── .github/
+│       ├── copilot-instructions.md   ← orchestrator (auto-loaded by Copilot)
+│       ├── agents/             ← 7 agents (.agent.md)
+│       └── skills/             ← 12 skills
+└── docs/
+    └── wiki/                   ← documentation site source (setup, test prompts, extension guide)
 ```
 
-Full documentation lives in the **[GitHub Wiki](https://github.com/saulpatinojr/Demo-Agentic_AI_with_Copilot/wiki)** — setup guides, test prompts with expected outcomes, and the extension guide.
+Full documentation lives in the **[documentation site](https://hybridcloudworks.github.io/Demo-Agentic_AI_with_Copilot/)** (source in `docs/wiki/`) — setup guides, test prompts with expected outcomes, and the extension guide.
 
 ## Where to go
 
-1. **Setup** — [Setup: Claude Code](https://github.com/saulpatinojr/Demo-Agentic_AI_with_Copilot/wiki/01-Setup-Claude) or [Setup: GitHub Copilot](https://github.com/saulpatinojr/Demo-Agentic_AI_with_Copilot/wiki/02-Setup-Copilot)
-2. **Test it** — [L1 simple](https://github.com/saulpatinojr/Demo-Agentic_AI_with_Copilot/wiki/03-Test-Prompts-L1) → [L2 advanced](https://github.com/saulpatinojr/Demo-Agentic_AI_with_Copilot/wiki/04-Test-Prompts-L2) → [L3 full-ecosystem](https://github.com/saulpatinojr/Demo-Agentic_AI_with_Copilot/wiki/05-Test-Prompts-L3)
-3. **Extend it** — [Adding Agents & Skills](https://github.com/saulpatinojr/Demo-Agentic_AI_with_Copilot/wiki/06-Adding-Agents-and-Skills)
+1. **Setup** — [Setup: Claude Code](https://hybridcloudworks.github.io/Demo-Agentic_AI_with_Copilot/01-Setup-Claude.html) or [Setup: GitHub Copilot](https://hybridcloudworks.github.io/Demo-Agentic_AI_with_Copilot/02-Setup-Copilot.html)
+2. **Test it** — [L1 simple](https://hybridcloudworks.github.io/Demo-Agentic_AI_with_Copilot/03-Test-Prompts-L1.html) → [L2 advanced](https://hybridcloudworks.github.io/Demo-Agentic_AI_with_Copilot/04-Test-Prompts-L2.html) → [L3 full-ecosystem](https://hybridcloudworks.github.io/Demo-Agentic_AI_with_Copilot/05-Test-Prompts-L3.html)
+3. **Extend it** — [Adding Agents & Skills](https://hybridcloudworks.github.io/Demo-Agentic_AI_with_Copilot/06-Adding-Agents-and-Skills.html)
+
+## Prerequisites
+
+- VS Code with **Claude Code** or **GitHub Copilot** (agent mode / custom agents), signed in.
+- Optional tools, only for the skills that use them (agents report any validation they could not run):
+  - `drawio-skill` — `python3` and the **draw.io desktop app** (its CLI does the PNG/SVG export).
+  - `terraform-validation` — `terraform`, `tflint`, `tfsec`, `checkov`.
+  - `azure-compliance` — `azqr` (Azure Quick Review).
+  - `report-issue` — `gh` (GitHub CLI), signed in.
 
 ## Quick start (60 seconds)
 
@@ -101,7 +114,7 @@ Create a **new, blank folder** for your test project (do not reuse an existing f
 
 **Windows (PowerShell):**
 ```powershell
-git clone https://github.com/saulpatinojr/Demo-Agentic_AI_with_Copilot.git
+git clone https://github.com/HybridCloudWorks/Demo-Agentic_AI_with_Copilot.git
 Copy-Item -Recurse -Force Demo-Agentic_AI_with_Copilot\claude\* your-project\     # Claude Code
 # or
 Copy-Item -Recurse -Force Demo-Agentic_AI_with_Copilot\copilot\* your-project\   # GitHub Copilot
@@ -109,7 +122,7 @@ Copy-Item -Recurse -Force Demo-Agentic_AI_with_Copilot\copilot\* your-project\  
 
 **macOS/Linux:**
 ```bash
-git clone https://github.com/saulpatinojr/Demo-Agentic_AI_with_Copilot.git
+git clone https://github.com/HybridCloudWorks/Demo-Agentic_AI_with_Copilot.git
 cp -r Demo-Agentic_AI_with_Copilot/claude/. your-project/     # Claude Code
 # or
 cp -r Demo-Agentic_AI_with_Copilot/copilot/. your-project/    # GitHub Copilot
@@ -117,8 +130,16 @@ cp -r Demo-Agentic_AI_with_Copilot/copilot/. your-project/    # GitHub Copilot
 
 Then:
 1. Open your project in VS Code with Claude Code (or Copilot) and start a **new** session — the Agents center should show 7 agents and 12 skills.
-2. Paste an L1 prompt from the [wiki](https://github.com/saulpatinojr/Demo-Agentic_AI_with_Copilot/wiki/03-Test-Prompts-L1), e.g. *"Design a small Azure landing zone for a dev web app"* — and watch it route to Arc.
+2. Paste an L1 prompt from the [docs](https://hybridcloudworks.github.io/Demo-Agentic_AI_with_Copilot/03-Test-Prompts-L1.html), e.g. *"Design a small Azure landing zone for a dev web app"* — and watch it route to Arc.
 
 > Heads-up: `.claude`/`.github` are dot-folders — if you drag-and-drop in Explorer/Finder instead of using the commands above, make sure hidden files are visible so they actually get copied.
 >
 > **Verify the nesting:** the dot-folder must sit at the project's TOP level (`your-project/.claude/` or `your-project/.github/`). If you see `your-project/claude/` or `your-project/copilot/`, you copied the folder instead of its contents and nothing will register — move the contents up one level.
+
+## Status
+
+Demo kit, not production software. Current release: **0.5** (see [Release 0.5](https://hybridcloudworks.github.io/Demo-Agentic_AI_with_Copilot/Release-0.5.html)). Found a bug? Use the `report-issue` skill or [open an issue](https://github.com/HybridCloudWorks/Demo-Agentic_AI_with_Copilot/issues).
+
+## License
+
+MIT — see [LICENSE](LICENSE). Bundled third-party skills keep their own licenses; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

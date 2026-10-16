@@ -1,10 +1,10 @@
 # Report Issue — Workflow
 
-File a bug report on the [saulpatinojr/Demo-Agentic_AI_with_Copilot](https://github.com/saulpatinojr/Demo-Agentic_AI_with_Copilot) GitHub repository. This workflow gathers the required information, presents a full preview, and creates the issue on the user's behalf.
+File a bug report on the [HybridCloudWorks/Demo-Agentic_AI_with_Copilot](https://github.com/HybridCloudWorks/Demo-Agentic_AI_with_Copilot) GitHub repository. This workflow gathers the required information, presents a full preview, and creates the issue on the user's behalf.
 
 **Initial request:** $ARGUMENTS
 
-> **WARNING:** Before proceeding, inform the user: "This will create an issue on the **public** GitHub repository saulpatinojr/Demo-Agentic_AI_with_Copilot. **Do not include any sensitive information** such as credentials, internal URLs, tenant/subscription IDs, customer data, or proprietary code."
+> **WARNING:** Before proceeding, inform the user: "This will create an issue on the **public** GitHub repository HybridCloudWorks/Demo-Agentic_AI_with_Copilot. **Do not include any sensitive information** such as credentials, internal URLs, tenant/subscription IDs, customer data, or proprietary code."
 
 ---
 
@@ -84,7 +84,7 @@ Use `AskUserQuestion`: **"Create this issue?"** — "Yes, file it" / "Edit somet
 
 1. Verify auth: `gh auth status`. If not authenticated, instruct the user to run `gh auth login` and stop.
 2. Write the body to a temp file, then:
-   `gh issue create --repo saulpatinojr/Demo-Agentic_AI_with_Copilot --title "<title>" --body-file <tmpfile> --label bug`
+   `gh issue create --repo HybridCloudWorks/Demo-Agentic_AI_with_Copilot --title "<title>" --body-file <tmpfile> --label bug`
    (If the `bug` label doesn't exist, retry without `--label`.)
 3. Capture the returned URL.
 

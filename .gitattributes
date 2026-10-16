@@ -1,0 +1,7 @@
+# Language bar: the third-party skill scripts are not this repo's own code
+claude/.claude/skills/drawio-skill/** linguist-vendored
+claude/.claude/skills/azure-deploy/** linguist-vendored
+copilot/.github/skills/drawio-skill/** linguist-vendored
+copilot/.github/skills/azure-deploy/** linguist-vendored
+# Count Markdown (agents, skills, docs) so the language bar is not empty
+*.md linguist-detectable

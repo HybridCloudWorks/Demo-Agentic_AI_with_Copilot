@@ -1,3 +1,7 @@
+---
+title: "Release 0.5"
+---
+
 # Release 0.5
 
 Release 0.5 simplifies the prompt set so it is easier to walk through in a live demo.
